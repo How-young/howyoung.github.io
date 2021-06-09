@@ -27,6 +27,7 @@
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css">
+    
     <script src="/libs/jquery/jquery.min.js"></script>
     <script src="https://v1.hitokoto.cn/?c=d&encode=js&select=%23hitokoto" defer></script>
 
@@ -36,7 +37,7 @@
 
 
 
-   <style>
+<style>
     body{
        background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
        background-repeat:no-repeat;
@@ -397,14 +398,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    8 分
                 </div>
                 
 
@@ -583,8 +584,85 @@
 <p>同时在<code>/themes/matery/layout/_partial/head.ejs</code>增加代码：</p>
 <pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"https://v1.hitokoto.cn/?c=d&amp;encode=js&amp;select=%23hitokoto"</span> defer<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
 </code></pre>
-<h2 id="更改主题的默认配置"><a href="#更改主题的默认配置" class="headerlink" title="更改主题的默认配置"></a>更改主题的默认配置</h2><h3 id="修改页脚"><a href="#修改页脚" class="headerlink" title="修改页脚"></a>修改页脚</h3><p>打开<code>themes\matery\layout\_partial/footer.ejs</code>文件，修改成自己想要的样式：</p>
-<pre class=" language-ejs"><code class="language-ejs">
+<h2 id="更改主题的默认配置"><a href="#更改主题的默认配置" class="headerlink" title="更改主题的默认配置"></a>更改主题的默认配置</h2><h3 id="增加红心"><a href="#增加红心" class="headerlink" title="增加红心"></a>增加红心</h3><p>打开<code>themes\matery\layout\_partial/header.ejs</code>文件，增加：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+</code></pre>
+<p>在需要红心的地方添加以下代码：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>heartbeat<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>fa fas fa-heartbeat<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">></span></span>
+</code></pre>
+<h3 id="修改页脚"><a href="#修改页脚" class="headerlink" title="修改页脚"></a>修改页脚</h3><p>打开<code>themes\matery\layout\_partial/footer.ejs</code>文件，修改成自己想要的样式：</p>
+<pre class=" language-ejs"><code class="language-ejs">Copyright&nbsp;&copy;
+<% if (theme.time.year !== new Date().getFullYear()) { %>
+<span id="year"><%- theme.time.year %>-<%- new Date().getFullYear() %></span>
+<% } else { %>
+<span id="year"><%- theme.time.year %></span>
+<% } %>
+<span id="year"><%- theme.time.year %></span>
+<i id="heartbeat" class="fa fas fa-heartbeat"></i>&nbsp;
+<a href="<%- url_for('/about') %>" target="_blank"><%- config.title %></a>
+<br>欢迎访问我的博客！
+<br>
+</code></pre>
+<p><img src="https://gitee.com/sehowyoung/images/raw/master/image-20210609181455329.png" alt="页脚效果图"></p>
+<h3 id="修改打赏二维码"><a href="#修改打赏二维码" class="headerlink" title="修改打赏二维码"></a>修改打赏二维码</h3><p>在主题文件的<code>source/medias/reward</code>文件中，替换成自己的支付宝和微信二维码即可。</p>
+<h3 id="修改社交链接"><a href="#修改社交链接" class="headerlink" title="修改社交链接"></a>修改社交链接</h3><p>打开主题的<code>_config.yml</code>文件，找到<code>socialLink</code>，按自己的意愿修改代码：</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true"># 首页 banner 中的第二行个人信息配置，留空即不启用</span>
+<span class="token key atrule">socialLink</span><span class="token punctuation">:</span>
+  <span class="token key atrule">github</span><span class="token punctuation">:</span>  https<span class="token punctuation">:</span>//github.com/sehowyoung
+  <span class="token key atrule">email</span><span class="token punctuation">:</span> howyoung525@foxmail.com
+  <span class="token key atrule">facebook</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true"># https://www.facebook.com/xxx</span>
+  <span class="token key atrule">twitter</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true"># https://twitter.com/xxx</span>
+  <span class="token key atrule">qq</span><span class="token punctuation">:</span> <span class="token number">846614051</span>
+  <span class="token key atrule">weibo</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true"># https://weibo.com/xxx</span>
+  <span class="token key atrule">zhihu</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true"># https://www.zhihu.com/xxx</span>
+  <span class="token key atrule">rss</span><span class="token punctuation">:</span> <span class="token boolean important">false </span><span class="token comment" spellcheck="true"># true、false</span>
+</code></pre>
+<h3 id="鼠标点击增加特效"><a href="#鼠标点击增加特效" class="headerlink" title="鼠标点击增加特效"></a>鼠标点击增加特效</h3><h4 id="增加文字特效"><a href="#增加文字特效" class="headerlink" title="增加文字特效"></a>增加文字特效</h4><p>在<code>themes/matery/layout/layout.ejs</code>中，在最后增加代码如下：</p>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
+    <span class="token keyword">var</span> a_idx <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token function">jQuery</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>$<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"body"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span><span class="token string">"富强"</span><span class="token punctuation">,</span> <span class="token string">"民主"</span><span class="token punctuation">,</span> <span class="token string">"文明"</span><span class="token punctuation">,</span> <span class="token string">"和谐"</span><span class="token punctuation">,</span> <span class="token string">"自由"</span><span class="token punctuation">,</span> <span class="token string">"平等"</span><span class="token punctuation">,</span> <span class="token string">"公正"</span><span class="token punctuation">,</span> <span class="token string">"法治"</span><span class="token punctuation">,</span> <span class="token string">"爱国"</span><span class="token punctuation">,</span> <span class="token string">"敬业"</span><span class="token punctuation">,</span> <span class="token string">"诚信"</span><span class="token punctuation">,</span>
+                              <span class="token string">"友善"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">var</span> $i <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"&lt;span/>"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>a_idx<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            a_idx <span class="token operator">=</span> <span class="token punctuation">(</span>a_idx <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> a<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+            <span class="token keyword">var</span> x <span class="token operator">=</span> e<span class="token punctuation">.</span>pageX<span class="token punctuation">,</span>
+                y <span class="token operator">=</span> e<span class="token punctuation">.</span>pageY<span class="token punctuation">;</span>
+            $i<span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                <span class="token string">"z-index"</span><span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+                <span class="token string">"top"</span><span class="token punctuation">:</span> y <span class="token operator">-</span> <span class="token number">20</span><span class="token punctuation">,</span>
+                <span class="token string">"left"</span><span class="token punctuation">:</span> x<span class="token punctuation">,</span>
+                <span class="token string">"position"</span><span class="token punctuation">:</span> <span class="token string">"absolute"</span><span class="token punctuation">,</span>
+                <span class="token string">"font-weight"</span><span class="token punctuation">:</span> <span class="token string">"bold"</span><span class="token punctuation">,</span>
+                <span class="token string">"color"</span><span class="token punctuation">:</span> <span class="token string">"#FF0000"</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"body"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>$i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            $i<span class="token punctuation">.</span><span class="token function">animate</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                <span class="token string">"top"</span><span class="token punctuation">:</span> y <span class="token operator">-</span> <span class="token number">180</span><span class="token punctuation">,</span>
+                <span class="token string">"opacity"</span><span class="token punctuation">:</span> <span class="token number">0</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                       <span class="token number">3000</span><span class="token punctuation">,</span>
+                       <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                $i<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token string">'delay()'</span><span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">delay</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">".buryit"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">removeAttr</span><span class="token punctuation">(</span><span class="token string">"onclick"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<h4 id="增加爱心特效"><a href="#增加爱心特效" class="headerlink" title="增加爱心特效"></a>增加爱心特效</h4><p>在主题的<code>_config.yml</code>文件中，将<code>clicklove.enable</code>设为<code>true</code></p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">clicklove</span><span class="token punctuation">:</span>
+  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+</code></pre>
+<p><img src="https://gitee.com/sehowyoung/images/raw/master/image-20210609184055104.png" alt="特效示例"></p>
+<h3 id="动态背景科技线条"><a href="#动态背景科技线条" class="headerlink" title="动态背景科技线条"></a>动态背景科技线条</h3><p>在<code>themes/matery/layout/layout.ejs</code>文件中添加如下代码：</p>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span> color<span class="token operator">=</span><span class="token string">"122 103 238"</span> opacity<span class="token operator">=</span><span class="token string">'0.7'</span> zIndex<span class="token operator">=</span><span class="token string">"-2"</span> count<span class="token operator">=</span><span class="token string">"200"</span>
+src<span class="token operator">=</span><span class="token string">"//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
 </code></pre>
 
                 
@@ -1412,7 +1490,7 @@
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+    <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
 <style>
     .aplayer .aplayer-lrc p {
         
@@ -1457,17 +1535,18 @@
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
 
     
-    <div class="container row center-align" style="margin-bottom: 15px !important;">
+    <div class="container row center-align"
+        style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2021</span>
+            <span id="year">2021</span>
             
             <span id="year">2021</span>
             <i id="heartbeat" class="fa fas fa-heartbeat"></i>&nbsp;
-                <a href="/about" target="_blank">howyoung's blog</a>
-                <br>欢迎访问我的博客！
-                <br>
+            <a href="/about" target="_blank">howyoung's blog</a>
+            <br>欢迎访问我的博客！
+            <br>
             
             
             
@@ -1566,7 +1645,6 @@
 </footer>
 
 <div class="progress-bar"></div>
-
 
     <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
@@ -1716,19 +1794,61 @@ $(function () {
 
     
 
-	
+    
     
 
     
 
     
-    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js"
+        async="async"></script>
     
 
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
+    <!-- 文字特效 -->
+    <script type="text/javascript">
+        var a_idx = 0;
+        jQuery(document).ready(function ($) {
+            $("body").click(function (e) {
+                var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信",
+                    "友善");
+                var $i = $("<span/>").text(a[a_idx]);
+                a_idx = (a_idx + 1) % a.length;
+                var x = e.pageX,
+                    y = e.pageY;
+                $i.css({
+                    "z-index": 5,
+                    "top": y - 20,
+                    "left": x,
+                    "position": "absolute",
+                    "font-weight": "bold",
+                    "color": "#FF0000"
+                });
+                $("body").append($i);
+                $i.animate({
+                        "top": y - 180,
+                        "opacity": 0
+                    },
+                    3000,
+                    function () {
+                        $i.remove();
+                    });
+            });
+            setTimeout('delay()', 2000);
+        });
+
+        function delay() {
+            $(".buryit").removeAttr("onclick");
+        }
+    </script>
+
+    <!--动态线条背景-->
+    <script type="text/javascript" color="122 103 238" opacity='0.7' zIndex="-2" count="200"
+        src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+    </script>
 </body>
 
 </html>
