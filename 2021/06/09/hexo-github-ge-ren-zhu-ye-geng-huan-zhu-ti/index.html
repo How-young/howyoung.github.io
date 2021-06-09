@@ -26,7 +26,7 @@
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css">
     <script src="/libs/jquery/jquery.min.js"></script>
     <script src="https://v1.hitokoto.cn/?c=d&encode=js&select=%23hitokoto" defer></script>
 
@@ -397,7 +397,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    1.6k
                 </div>
                 
 
@@ -582,6 +582,9 @@
 </code></pre>
 <p>同时在<code>/themes/matery/layout/_partial/head.ejs</code>增加代码：</p>
 <pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"https://v1.hitokoto.cn/?c=d&amp;encode=js&amp;select=%23hitokoto"</span> defer<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<h2 id="更改主题的默认配置"><a href="#更改主题的默认配置" class="headerlink" title="更改主题的默认配置"></a>更改主题的默认配置</h2><h3 id="修改页脚"><a href="#修改页脚" class="headerlink" title="修改页脚"></a>修改页脚</h3><p>打开<code>themes\matery\layout\_partial/footer.ejs</code>文件，修改成自己想要的样式：</p>
+<pre class=" language-ejs"><code class="language-ejs">
 </code></pre>
 
                 
@@ -1461,10 +1464,10 @@
                 <span id="year">2021</span>
             
             <span id="year">2021</span>
-            <a href="/about" target="_blank">howyoung</a>
-            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
-            <br>
+            <i id="heartbeat" class="fa fas fa-heartbeat"></i>&nbsp;
+                <a href="/about" target="_blank">howyoung's blog</a>
+                <br>欢迎访问我的博客！
+                <br>
             
             
             
