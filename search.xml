@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>在gitee和GitHub中查看原始数据</title>
+      <link href="/2021/06/15/zai-gitee-he-github-zhong-cha-kan-yuan-shi-shu-ju/"/>
+      <url>/2021/06/15/zai-gitee-he-github-zhong-cha-kan-yuan-shi-shu-ju/</url>
+      
+        <content type="html"><![CDATA[<h1 id="在gitee和GitHub中查看原始数据"><a href="#在gitee和GitHub中查看原始数据" class="headerlink" title="在gitee和GitHub中查看原始数据"></a>在gitee和GitHub中查看原始数据</h1><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>总是在别人分享的链接中看到以“raw.githubusercontent.com”为域名，便想了解一下，本文将介绍一下在gitee和GitHub中查看原始数据。</p><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p><code>raw.githubusercontent.com</code>域用于提供存储在GitHub存储库中的文件的未处理版本。如果您浏览到GitHub上的文件，然后单击Raw链接，那么您将到达。</p><h2 id="GitHub中查看"><a href="#GitHub中查看" class="headerlink" title="GitHub中查看"></a>GitHub中查看</h2><p>在<a href="github.com">GitHub</a>的官网中随便找一个仓库，随便打开里面的一个文件，我们会发现在代码模块上面有一个<code>Row</code>按钮（如图一），点击按钮之后就可以在网页中直接查看原始数据（如图二）。</p><p><img src="https://gitee.com/sehowyoung/images/raw/master/image-20210615142224706.png" alt="图一"></p><p><img src="https://gitee.com/sehowyoung/images/raw/master/image-20210615142436770.png" alt="图二"></p><p>我们仔细观察一下这两个网页的URL：</p><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># github文件</span>https://github.com/sehowyoung/sehowyoung.github.io/blob/master/index.html<span class="token comment" spellcheck="true"># 原始数据文件</span>https://raw.githubusercontent.com/sehowyoung/sehowyoung.github.io/master/index.html</code></pre><p>我们可以发现原始数据文件和GitHub文件的差异就在：</p><ul><li>域名</li><li><code>/blob/</code></li></ul><h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>要在通常的github界面中查看<code>raw.githubusercontent.com/${username}/${repo-name}/${branch-name}/${path}</code>的内容：您将<code>raw.githubusercontent.com</code>替换为普通的<code>github.com</code>，然后在仓库名称和分支名称之间插入<code>blob/</code>即可。</p><p>在这种情况下，分支名称为<code>master</code>(这是一个非常常见的分支名称)，因此您将<code>/master/</code>替换为<code>/blob/master/</code>即可。</p><p>相反，如果你知道一个GitHub文件的链接，想直接查看或直接引用，将<code>github.com</code>换成<code>raw.githubusercontent.com</code>，同时删除<code>blob/</code>即可直接查看。</p><h2 id="gitee中查看原始数据"><a href="#gitee中查看原始数据" class="headerlink" title="gitee中查看原始数据"></a>gitee中查看原始数据</h2><p>在了解完GitHub查看原始数据之后，我总是在想gitee会不会有类似的操作，果不其然。</p><p>同样，打开gitee仓库的任意一个文件（如图二），发现就有<code>原始数据</code>这个按钮，直接点击就可以查看原始数据（如图四）。</p><p><img src="https://gitee.com/sehowyoung/images/raw/master/image-20210615143445564.png" alt="图三"></p><p><img src="https://gitee.com/sehowyoung/images/raw/master/image-20210615143613405.png" alt="图四"></p><p>我们来分析一下二者的URL：</p><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># gitee文件</span>https://gitee.com/sehowyoung/Sort/blob/main/java/src/sort/Insertion.java<span class="token comment" spellcheck="true"># 原始数据文件</span>https://gitee.com/sehowyoung/Sort/raw/main/java/src/sort/Insertion.java</code></pre><p>这个想必GitHub就简单许多了，只是把<code>blob</code>换成<code>raw</code>即可。通过这样的切换，我们就可以直接查看、引用文件数据。</p><h3 id="结论-1"><a href="#结论-1" class="headerlink" title="结论"></a>结论</h3><p>要在通常的gitee界面中查看<code>gitee.com/${username}/${repo-name}/${branch-name}/${path}</code>的内容：您需要在仓库名称和分支名称之间插入<code>blob/</code>即可。</p><p>在这种情况下，分支名称为<code>master</code>(这是一个非常常见的分支名称)，因此您将<code>/master/</code>替换为<code>/blob/master/</code>即可。</p><p>相反，如果你知道一个gitee文件的链接，想直接查看或直接引用，删除<code>blob/</code>即可直接查看。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 常识 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 原始数据 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>git学习笔记</title>
       <link href="/2021/06/10/git-xue-xi-bi-ji/"/>
       <url>/2021/06/10/git-xue-xi-bi-ji/</url>
