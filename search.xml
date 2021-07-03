@@ -4,11 +4,40 @@
   
     
     <entry>
+      <title>Java多线程编程</title>
+      <link href="/2021/07/03/java-duo-xian-cheng-bian-cheng/"/>
+      <url>/2021/07/03/java-duo-xian-cheng-bian-cheng/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Java多线程编程"><a href="#Java多线程编程" class="headerlink" title="Java多线程编程"></a>Java多线程编程</h1><h2 id="使用线程"><a href="#使用线程" class="headerlink" title="使用线程"></a>使用线程</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+          <category> 多线程编程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> 多线程编程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>数据库系统知识点总结</title>
       <link href="/2021/07/03/shu-ju-ku-xi-tong-zhi-shi-dian-zong-jie/"/>
       <url>/2021/07/03/shu-ju-ku-xi-tong-zhi-shi-dian-zong-jie/</url>
       
-        <content type="html"><![CDATA[<h1 id="数据库系统"><a href="#数据库系统" class="headerlink" title="数据库系统"></a>数据库系统</h1><h2 id="数据库系统原理"><a href="#数据库系统原理" class="headerlink" title="数据库系统原理"></a>数据库系统原理</h2><h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><p>事务是指满足 ACID 特性的一组操作，可以通过 Commit 提交一个事务，也可以使用 Rollback 进行回滚。</p><p>ACID：</p><ul><li>原子性（Atomicity）：事务被视为不可分割的最小单元，事务的所有操作要么全部成功，要么全部失败</li><li>一致性（Consistency）：数据库在事务执行前后都保持一致性状态。在一致性状态下，所有事务对同一个数据的读取结果都是相同的。</li><li>隔离性（Isolation）：一个事务所做的修改在最终提交前，对其它事务不可见</li><li>持久性（Durability）：一旦事务提交，其所作的修改将会永远保存在数据库中。</li></ul><p>AUTOCOMMIT：MySQL 默认采用自动提交模式。</p><h3 id="并发一致性问题"><a href="#并发一致性问题" class="headerlink" title="并发一致性问题"></a>并发一致性问题</h3><p>在并发环境下，事务的隔离性很难保证，因此会出现很多并发一致性问题</p><h4 id="丢失修改"><a href="#丢失修改" class="headerlink" title="丢失修改"></a>丢失修改</h4><p>丢失修改指一个事务的更新操作被另外一个事务的更新操作替换。一般在现实生活中常会遇到，例如：$T_{1}$和$T_{2}$两个事务都对一个数据进行修改，$T_{1}$先修改并提交生效，$T_{2}$随后修改，$T_{2}$的修改覆盖了$T_{1}$的修改</p><h3 id="读脏数据"><a href="#读脏数据" class="headerlink" title="读脏数据"></a>读脏数据</h3><p>读脏数据指在不同的事务下，当前事务可以读到另外事务未提交的数据。例如：$T_{!}$修改一个数据但未提交，$T_{2}$随后读取这个数据。如果$T_{1}$撤销了这次修改，那么$T_{2}$读取的数据是脏数据。</p><h4 id="不可重复读"><a href="#不可重复读" class="headerlink" title="不可重复读"></a>不可重复读</h4><p>不可重复读指在一个事务内多次读取同一数据集合。在这一事务还未结束前，另一事务也访问了该同一数据集合并做了修改，由于第二个事务的修改，第一次事务的两次读取的数据可能不一致。例如：$T_{2}$读取一个数据，$T_{1}$对该数据做了修改。如果$T_{2}$再次读取这个数据，此时读取的结果和第一次读取的结果不同。</p><h4 id="幻读"><a href="#幻读" class="headerlink" title="幻读"></a>幻读</h4><p>幻读本质上也属于不可重复读的情况，$T_{1}$读取某个范围的数据，$T_{2}$在这个范围内插入新的数据，$T_{1}$再次读取这个范围的数据，此时读取的结果和和第一次读取的结果不同。</p><p>产生并发不一致性问题的主要原因是破坏了事务的隔离性，解决方法是通过并发控制来保证隔离性。并发控制可以通过封锁来实现，但是封锁操作需要用户自己控制，相当复杂。数据库管理系统提供了事务的隔离级别，让用户以一种更轻松的方式处理并发一致性问题。</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="数据库系统"><a href="#数据库系统" class="headerlink" title="数据库系统"></a>数据库系统</h1><h2 id="数据库系统原理"><a href="#数据库系统原理" class="headerlink" title="数据库系统原理"></a>数据库系统原理</h2><h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><p>事务是指满足 ACID 特性的一组操作，可以通过 Commit 提交一个事务，也可以使用 Rollback 进行回滚。</p><p>ACID：</p><ul><li>原子性（Atomicity）：事务被视为不可分割的最小单元，事务的所有操作要么全部成功，要么全部失败</li><li>一致性（Consistency）：数据库在事务执行前后都保持一致性状态。在一致性状态下，所有事务对同一个数据的读取结果都是相同的。</li><li>隔离性（Isolation）：一个事务所做的修改在最终提交前，对其它事务不可见</li><li>持久性（Durability）：一旦事务提交，其所作的修改将会永远保存在数据库中。</li></ul><p>AUTOCOMMIT：MySQL 默认采用自动提交模式。</p><h3 id="并发一致性问题"><a href="#并发一致性问题" class="headerlink" title="并发一致性问题"></a>并发一致性问题</h3><p>在并发环境下，事务的隔离性很难保证，因此会出现很多并发一致性问题</p><h4 id="丢失修改"><a href="#丢失修改" class="headerlink" title="丢失修改"></a>丢失修改</h4><p>丢失修改指一个事务的更新操作被另外一个事务的更新操作替换。一般在现实生活中常会遇到，例如：$T_{1}$和$T_{2}$两个事务都对一个数据进行修改，$T_{1}$先修改并提交生效，$T_{2}$随后修改，$T_{2}$的修改覆盖了$T_{1}$的修改</p><h4 id="读脏数据"><a href="#读脏数据" class="headerlink" title="读脏数据"></a>读脏数据</h4><p>读脏数据指在不同的事务下，当前事务可以读到另外事务未提交的数据。例如：$T_{!}$修改一个数据但未提交，$T_{2}$随后读取这个数据。如果$T_{1}$撤销了这次修改，那么$T_{2}$读取的数据是脏数据。</p><h4 id="不可重复读"><a href="#不可重复读" class="headerlink" title="不可重复读"></a>不可重复读</h4><p>不可重复读指在一个事务内多次读取同一数据集合。在这一事务还未结束前，另一事务也访问了该同一数据集合并做了修改，由于第二个事务的修改，第一次事务的两次读取的数据可能不一致。例如：$T_{2}$读取一个数据，$T_{1}$对该数据做了修改。如果$T_{2}$再次读取这个数据，此时读取的结果和第一次读取的结果不同。</p><h4 id="幻读"><a href="#幻读" class="headerlink" title="幻读"></a>幻读</h4><p>幻读本质上也属于不可重复读的情况，$T_{1}$读取某个范围的数据，$T_{2}$在这个范围内插入新的数据，$T_{1}$再次读取这个范围的数据，此时读取的结果和和第一次读取的结果不同。</p><p>产生并发不一致性问题的主要原因是破坏了事务的隔离性，解决方法是通过并发控制来保证隔离性。并发控制可以通过封锁来实现，但是封锁操作需要用户自己控制，相当复杂。数据库管理系统提供了事务的隔离级别，让用户以一种更轻松的方式处理并发一致性问题。</p><h3 id="封锁"><a href="#封锁" class="headerlink" title="封锁"></a>封锁</h3><h4 id="封锁粒度"><a href="#封锁粒度" class="headerlink" title="封锁粒度"></a>封锁粒度</h4><ul><li>MySQL提供了两种封锁粒度：行级锁以及表级锁</li><li>应该尽量之锁定需要修改的那部分数据，而不是所有资源。锁定的数据量越少，发生锁争的可能就越小，系统的并发程度就越高</li><li>加锁需要消耗资源，锁的各种行为都会增加系统开销。因此锁的粒度越小，系统开销越大</li><li>在选择粒度时，需要在锁开销和并发程度之间做一个权衡</li></ul><h4 id="封锁类型"><a href="#封锁类型" class="headerlink" title="封锁类型"></a>封锁类型</h4><ul><li><p>读写锁</p><ul><li>互斥锁：简写为 X 锁，又称写锁</li><li>共享锁：简写为 S 锁，又称读锁</li></ul><p>两个规定：</p><ul><li>一个事务对数据对象 A 加了 X 锁，就可以对 A 进行读取和更新。枷锁期间其他事务不能对 A 加任何锁</li><li>一个事务对数据对象 A 加了 S 锁，只可以对 A 进行读取操作，无法进行更新操作。加锁期间其他事务能对 A 加 S 锁，但是不能加 X 锁</li></ul></li><li><p>意向锁</p><p>使用意向锁可以更容易地支持多粒度封锁</p><p>在存在行级锁和表级锁的情况下，事务 T 想要对表 A 加 X 锁，就需要先检测是否有其它事务对表 A 或者表 A 中的任意一行加了锁，那么就需要对表 A 的每一行都检测一次，这是非常耗时的。</p><p>意向锁在原来的 X/S 锁之上引入了 IX/IS，IX/IS 都是表锁，用来表示一个事务想要在表中的某个数据行上加 X 锁或 S 锁。有以下两个规定：</p><ul><li><p>一个事务在获得某个数据行对象的 S 锁之前，必须先获得表的 IS 锁或者更强的锁；</p></li><li><p>一个事务在获得某个数据行对象的 X 锁之前，必须先获得表的 IX 锁。</p></li></ul><p>通过引入意向锁，事务 T 想要对表 A 加 X 锁，只需要先检测是否有其它事务对表 A 加了 X/IX/S/IS 锁，如果加了就表示有其它事务正在使用这个表或者表中某一行的锁，因此事务 T 加 X 锁失败。</p><p><img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/image-20191207214442687.png" alt="意向锁兼容关系"></p></li></ul><h4 id="封锁协议"><a href="#封锁协议" class="headerlink" title="封锁协议"></a>封锁协议</h4><ol><li><p>三级封锁协议</p><ol><li><p>一级封锁协议</p><p>事务 T 要修改数据 A 时必须加 X 锁，直到 T 结束才释放锁</p><p>可以解决丢失修改问题。</p></li><li><p>耳机封锁协议</p><p>在一级的基础上，要求读取数据 A 时必须加 S 锁，读完马上释放 S 锁。</p><p>可以解决读脏数据。</p></li><li><p>三级封锁协议</p><p>在二级的基础上，要求读取数据 A 时必须加 S 锁，指导事务结束才能释放</p><p>可以解决不可重复读问题</p></li></ol></li><li><p>两段封锁协议</p><p>加锁和解锁分为两个阶段进行。</p><p>可串行化调度是指：通过并发控制，使得并发执行的事务结果与某个串行执行的书屋结果相同，串行执行的事务互不干扰，不会出现并发一致性问题。</p><p>事务遵循两段封锁协议是保证可串行化调度的充分条件。</p></li></ol><h4 id="MySQL-隐式与显示锁定"><a href="#MySQL-隐式与显示锁定" class="headerlink" title="MySQL 隐式与显示锁定"></a>MySQL 隐式与显示锁定</h4><p>MySQL 的 InnoDB 存储引擎采用两段封锁协议，会根据隔离级别在需要的时候自动加锁，并且所有的锁都是在同一时刻释放，这被称为隐式锁定</p><p>InnoDB 也可以使用特定的语句进行显示锁定：</p><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">LOCK</span> <span class="token operator">In</span> <span class="token keyword">SHARE MODE</span><span class="token punctuation">;</span><span class="token keyword">SELECT</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">FOR</span> <span class="token keyword">UPDATE</span><span class="token punctuation">;</span></code></pre><h2 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h2><h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><h4 id="B-Tree原理"><a href="#B-Tree原理" class="headerlink" title="B+ Tree原理"></a>B+ Tree原理</h4><p>B+ Tree 是基于 B Tree（Balance Tree，平衡树） 和叶子节点顺序访问指针进行实现，它具有 B Tree 的平衡性，并且通过顺序访问指针来提高区间查询的性能。</p><p>在 B+ Tree 中，一个节点中的 key 从左到右非递减排列，如果某个指针的左右相邻 key 分别是 $key_{i}$ 和 $key_{i+1}$，且不为 null，则该指针指向节点的所有 key 大于等于 $key_{i}$ 且小于等于 $key_{i+1}$</p>]]></content>
       
       
       <categories>
@@ -318,6 +347,8 @@
       
       <categories>
           
+          <category> Java </category>
+          
           <category> 算法 </category>
           
       </categories>
@@ -325,9 +356,9 @@
       
         <tags>
             
-            <tag> sort </tag>
+            <tag> 算法 </tag>
             
-            <tag> java </tag>
+            <tag> Java </tag>
             
         </tags>
       
