@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>数据库系统知识点总结</title>
+      <link href="/2021/07/03/shu-ju-ku-xi-tong-zhi-shi-dian-zong-jie/"/>
+      <url>/2021/07/03/shu-ju-ku-xi-tong-zhi-shi-dian-zong-jie/</url>
+      
+        <content type="html"><![CDATA[<h1 id="数据库系统"><a href="#数据库系统" class="headerlink" title="数据库系统"></a>数据库系统</h1><h2 id="数据库系统原理"><a href="#数据库系统原理" class="headerlink" title="数据库系统原理"></a>数据库系统原理</h2><h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><p>事务是指满足 ACID 特性的一组操作，可以通过 Commit 提交一个事务，也可以使用 Rollback 进行回滚。</p><p>ACID：</p><ul><li>原子性（Atomicity）：事务被视为不可分割的最小单元，事务的所有操作要么全部成功，要么全部失败</li><li>一致性（Consistency）：数据库在事务执行前后都保持一致性状态。在一致性状态下，所有事务对同一个数据的读取结果都是相同的。</li><li>隔离性（Isolation）：一个事务所做的修改在最终提交前，对其它事务不可见</li><li>持久性（Durability）：一旦事务提交，其所作的修改将会永远保存在数据库中。</li></ul><p>AUTOCOMMIT：MySQL 默认采用自动提交模式。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 常识 </category>
+          
+          <category> 数据库系统 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 面经 </tag>
+            
+            <tag> 数据库系统 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>计算机网络知识总结</title>
       <link href="/2021/07/03/ji-suan-ji-wang-luo-zhi-shi-zong-jie/"/>
       <url>/2021/07/03/ji-suan-ji-wang-luo-zhi-shi-zong-jie/</url>
