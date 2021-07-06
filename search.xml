@@ -4,6 +4,64 @@
   
     
     <entry>
+      <title>剑指offer_JZ12_数值的整数次方题解</title>
+      <link href="/2021/07/06/jian-zhi-offer-jz12-shu-zhi-de-zheng-shu-ci-fang-ti-jie/"/>
+      <url>/2021/07/06/jian-zhi-offer-jz12-shu-zhi-de-zheng-shu-ci-fang-ti-jie/</url>
+      
+        <content type="html"><![CDATA[<h1 id="剑指offer-JZ12-数值的整数次方题解"><a href="#剑指offer-JZ12-数值的整数次方题解" class="headerlink" title="剑指offer_JZ12_数值的整数次方题解"></a>剑指offer_JZ12_数值的整数次方题解</h1><blockquote><p><strong>描述</strong></p><p>给定一个double类型的浮点数base和int类型的整数exponent。求base的exponent次方。</p><p>保证base和exponent不同时为0。不得使用库函数，同时不需要考虑大数问题，也不用考虑小数点后面0的位数。</p><p><strong>示例1</strong></p><blockquote><p>输入：2.00000,3</p><p>返回值：8.00000</p></blockquote><p><strong>示例2</strong></p><blockquote><p>输入：2.10000,3</p><p>返回值：9.26100</p></blockquote><p><strong>示例3</strong></p><blockquote><p>输入：2.00000, -2</p><p>返回值：0.25000</p></blockquote></blockquote><h2 id="暴力法"><a href="#暴力法" class="headerlink" title="暴力法"></a>暴力法</h2><p>不断进行乘法运算即可。</p><pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>    <span class="token keyword">public</span> <span class="token keyword">double</span> <span class="token function">Power</span><span class="token punctuation">(</span><span class="token keyword">double</span> base<span class="token punctuation">,</span> <span class="token keyword">int</span> exponent<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token keyword">double</span> ans <span class="token operator">=</span> <span class="token number">1.0</span><span class="token punctuation">;</span>        <span class="token keyword">if</span> <span class="token punctuation">(</span>exponent <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>            <span class="token keyword">return</span> ans<span class="token punctuation">;</span>        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>exponent <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>            ans <span class="token operator">=</span> base<span class="token punctuation">;</span>            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> exponent <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>                ans <span class="token operator">*=</span> base<span class="token punctuation">;</span>            <span class="token punctuation">}</span>        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>            ans <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">/</span> base<span class="token punctuation">;</span>            <span class="token keyword">double</span> temp <span class="token operator">=</span> ans<span class="token punctuation">;</span>            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> exponent <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>                ans <span class="token operator">*=</span> temp<span class="token punctuation">;</span>            <span class="token punctuation">}</span>        <span class="token punctuation">}</span>        <span class="token keyword">return</span> ans<span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre><h2 id="递归法"><a href="#递归法" class="headerlink" title="递归法"></a>递归法</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> 算法题解 </tag>
+            
+            <tag> 剑指offer </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>剑指offer_JZ11_二进制中的1的个数题解</title>
+      <link href="/2021/07/06/jian-zhi-offer-jz11-er-jin-zhi-zhong-de-1-de-ge-shu/"/>
+      <url>/2021/07/06/jian-zhi-offer-jz11-er-jin-zhi-zhong-de-1-de-ge-shu/</url>
+      
+        <content type="html"><![CDATA[<h1 id="剑指offer-JZ11-二进制中的1的个数题解"><a href="#剑指offer-JZ11-二进制中的1的个数题解" class="headerlink" title="剑指offer_JZ11_二进制中的1的个数题解"></a>剑指offer_JZ11_二进制中的1的个数题解</h1><blockquote><p><strong>描述</strong></p><p>输入一个整数，输出该数32位二进制表示中1的个数。其中负数用补码表示。</p><p><strong>示例1</strong></p><blockquote><p>输入：10</p><p>返回值：2</p></blockquote></blockquote><p><strong>知识点：</strong>位运算</p><h2 id="方法一：除-2-取模法"><a href="#方法一：除-2-取模法" class="headerlink" title="方法一：除 2 取模法"></a>方法一：除 2 取模法</h2><p>使用除 2 取模法还是比较好实现的。</p><p>但是经过测试，在一些负数问题上会出现错误，比如：-2147483648</p><pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">NumberOf1</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">{</span>        <span class="token keyword">int</span> num <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>        <span class="token keyword">while</span> <span class="token punctuation">(</span>n <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>            <span class="token keyword">int</span> temp <span class="token operator">=</span> n <span class="token operator">%</span> <span class="token number">2</span><span class="token punctuation">;</span>            n <span class="token operator">/=</span> <span class="token number">2</span><span class="token punctuation">;</span>            <span class="token keyword">if</span> <span class="token punctuation">(</span>temp <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>                num<span class="token operator">++</span><span class="token punctuation">;</span>            <span class="token punctuation">}</span>        <span class="token punctuation">}</span>        <span class="token keyword">return</span> num<span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre><h2 id="方法二：二进制移位运算"><a href="#方法二：二进制移位运算" class="headerlink" title="方法二：二进制移位运算"></a>方法二：二进制移位运算</h2><p>我们可以让 1 从右向左做与运算</p><p>例如：10：1010</p><ul><li>1010 &amp; 0001 = 0000;</li><li>1010 &amp; 0010 = 0010;</li><li>1010 &amp; 0100 = 0000;</li><li>1010 &amp; 1000 = 1000;</li></ul><pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">NumberOf1</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">{</span>        <span class="token keyword">int</span> num <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>        <span class="token keyword">int</span> mark <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>        <span class="token keyword">while</span> <span class="token punctuation">(</span>mark <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>mark <span class="token operator">&amp;</span> n<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>                num<span class="token operator">++</span><span class="token punctuation">;</span>            <span class="token punctuation">}</span>            mark <span class="token operator">&lt;&lt;=</span> <span class="token number">1</span><span class="token punctuation">;</span>        <span class="token punctuation">}</span>        <span class="token keyword">return</span> num<span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre><h2 id="方法三：位运算"><a href="#方法三：位运算" class="headerlink" title="方法三：位运算"></a>方法三：位运算</h2><p>考虑二进制数：num: 10010, num - 1: 10001; num &amp; (num - 1) = 10000，这样不就消去了一个 1 吗。而且效率肯定是比前两种方法高的。</p><pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">NumberOf1</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">{</span>        <span class="token keyword">int</span> val <span class="token operator">=</span> n<span class="token punctuation">;</span>        <span class="token keyword">int</span> ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>        <span class="token keyword">while</span> <span class="token punctuation">(</span>val <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>            ans<span class="token operator">++</span><span class="token punctuation">;</span>            val <span class="token operator">=</span> val <span class="token operator">&amp;</span> <span class="token punctuation">(</span>val <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token punctuation">}</span>        <span class="token keyword">return</span> ans<span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法题解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> 算法题解 </tag>
+            
+            <tag> 剑指offer </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>nowcoder_NC76_反转链表题解</title>
       <link href="/2021/07/05/nowcoder-nc76-fan-zhuan-lian-biao-ti-jie/"/>
       <url>/2021/07/05/nowcoder-nc76-fan-zhuan-lian-biao-ti-jie/</url>
